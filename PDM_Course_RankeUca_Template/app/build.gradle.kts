@@ -32,8 +32,9 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     buildConfigField("String", "API_TOKEN", "\"$token\"")
-
   }
+
+  buildFeatures { buildConfig = true}
 
   buildTypes {
     release {

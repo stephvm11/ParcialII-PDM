@@ -15,7 +15,8 @@ import kotlinx.serialization.json.Json
 
 object KtorClient {
 
-  private const val BASE_URL = "https://qjcxdvfzyseuvezacxsd.supabase.co/functions/v1/rankeuca"
+  private const val BASE_URL = "https://qjcxdvfzyseuvezacxsd.supabase.co/functions/v1/rankeuca/"
+  private const val TOKEN = "6e76f30c-6bab-4f72-ac49-7b1ae09219d0"
   val client = HttpClient(OkHttp) {
     // Parseo automático de JSON
     install(ContentNegotiation) {
@@ -38,6 +39,7 @@ object KtorClient {
     defaultRequest {
       url(BASE_URL)
       header(HttpHeaders.Accept, "application/json")
+      header(HttpHeaders.Authorization, "Bearer $TOKEN")
     }
   }
 }

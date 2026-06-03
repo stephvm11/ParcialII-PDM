@@ -14,7 +14,7 @@ import io.ktor.client.request.post
 class VotingApiRepository : VotingRepository{
     override suspend fun getOptions(): Result<List<Option>> {
         try {
-            val request: List<OptionDto> = KtorClient.client.get("/options").body()
+            val request: List<OptionDto> = KtorClient.client.get("options").body()
             return Result.success(request.map { optionDto -> optionDto.toModel() })
         }catch (e : Exception){
             return Result.failure(e)
